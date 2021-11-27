@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Baked Goods List</title>
+</head>
+
+<body>
+    <h1>
+        Baked Goods Index Page
+    </h1>
+    <ul>
+        <% for (let i=0; i < bakedGoods.length; i++) { %>
+            <li>
+                <a href="/bakedgoods/<%=i%>">
+                    <%= bakedGoods[i].name %>
+                </a>
+                <img src=<%=bakedGoods[i].image%>/>
+                <p>
+                    <%=bakedGoods[i].price%>
+                </p>
+            </li>
+            <% } %>
+    </ul>
+</body>
+
+</html>
