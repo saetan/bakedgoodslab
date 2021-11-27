@@ -12,6 +12,12 @@ const port = 3001;
 const bakedGoods = require('./models/bakedgoods.js');
 
 // =======================================
+//              MIDDLEWARE
+// =======================================
+app.use(express.urlencoded());
+
+
+// =======================================
 //              ROUTES
 // =======================================
 // index route
@@ -24,6 +30,17 @@ app.get('/bakedgoods/:id', (req, res) => {
     res.render('show.ejs', { bakedGood: bakedGoods[req.params.id] });
 
 });
+
+//add goods route
+app.get('/add', (req, res) => {
+    res.render('add.ejs');
+});
+
+//newbakedgoods POST route
+app.post('/newbakedgoods', (req, res) => {
+    bakedGoods.push(req.body);
+    res.redirect('/bakedgoods');
+})
 
 // =======================================
 //              LISTENER
